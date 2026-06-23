@@ -53,15 +53,15 @@ An AI-powered Innovation Ecosystem Platform that connects **Startups, Corporates
 
 
 
-# 🏗️ Project Architecture
 
 
-starup-incubation-system
+## 🏗️ Project Architecture
+
+
+startup-incubation-system
 │
 ├── backend
-│   │
 │   ├── app
-│   │   │
 │   │   ├── __pycache__
 │   │   ├── core
 │   │   │
@@ -127,12 +127,10 @@ starup-incubation-system
 │   └── venv
 │
 ├── frontend
-│   │
 │   ├── node_modules
 │   ├── public
 │   │
 │   ├── src
-│   │   │
 │   │   ├── assets
 │   │   │   └── hero.png
 │   │   │
