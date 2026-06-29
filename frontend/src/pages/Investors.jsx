@@ -4,12 +4,23 @@ import api from "../services/api";
 function Investors() {
   const [search, setSearch] = useState("");
   const [investors, setInvestors] = useState([]);
+  const [startups, setStartups] = useState([]);
+  const [interests, setInterests] = useState({});
 
   useEffect(() => {
     api
       .get("/investor/all")
       .then((res) => {
         setInvestors(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    api
+      .get("/startup/all")
+      .then((res) => {
+        setStartups(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -38,6 +49,13 @@ function Investors() {
       i.preferred_sector?.toLowerCase().includes("climate")
   ).length;
 
+  const markInterested = (startupId) => {
+    setInterests({
+      ...interests,
+      [startupId]: "Interested",
+    });
+  };
+
   return (
     <div
       className="container-fluid p-4 text-white"
@@ -51,6 +69,7 @@ function Investors() {
       </h2>
 
       {/* KPI CARDS */}
+
       <div className="row g-4 mb-4">
 
         <div className="col-md-3">
@@ -112,6 +131,7 @@ function Investors() {
       </div>
 
       {/* SEARCH */}
+
       <div
         className="card border-0 shadow p-4 mb-4"
         style={{
@@ -119,7 +139,7 @@ function Investors() {
           borderRadius: "18px",
         }}
       >
-        <h5 className="mb-3" style={{ color: "#fff" }}>
+        <h5 className="mb-3" style={{ color: "#f7f3f3" }}>
           Search Investors
         </h5>
 
@@ -132,20 +152,22 @@ function Investors() {
         />
       </div>
 
-      {/* TABLE */}
+      {/* INVESTORS TABLE */}
+
       <div
-        className="card border-0 shadow"
+        className="card border-0 shadow mb-4"
         style={{
           background: "#151518",
           borderRadius: "18px",
         }}
       >
         <div className="card-header border-0 bg-transparent">
-          <h4 style={{ color: "#fff" }}>Investor Directory</h4>
+          <h4 style={{ color: "#f7f3f3" }}>Investor Directory</h4>
         </div>
 
         <div className="card-body">
           <table className="table table-dark table-hover align-middle">
+
             <thead>
               <tr>
                 <th>Firm Name</th>
@@ -172,7 +194,7 @@ function Investors() {
                 <tr>
                   <td
                     colSpan="5"
-                    className="text-center text-secondary"
+                    className="text-center"
                   >
                     No investors found
                   </td>
@@ -180,9 +202,93 @@ function Investors() {
               )}
 
             </tbody>
+
           </table>
         </div>
       </div>
+
+      {/* STARTUPS SEEKING FUNDING */}
+
+      <div
+        className="card border-0 shadow"
+        style={{
+          background: "#151518",
+          borderRadius: "18px",
+        }}
+      >
+        <div className="card-header border-0 bg-transparent">
+          <h4 style={{ color: "#f7f3f3" }}>🚀 Startups Seeking Funding</h4>
+        </div>
+
+        <div className="card-body">
+
+          <table className="table table-dark table-hover align-middle">
+
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Industry</th>
+                <th>Funding Required</th>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {startups.length > 0 ? (
+                startups.map((startup) => (
+                  <tr key={startup.id}>
+
+                    <td>{startup.company_name}</td>
+
+                    <td>{startup.industry}</td>
+
+                    <td>
+                      {startup.funding_required}
+                    </td>
+
+                    <td>{startup.location}</td>
+
+                    <td>
+
+                      {interests[startup.id] ? (
+                        <span className="badge bg-success">
+                          Funding Interest Sent
+                        </span>
+                      ) : (
+                        <button
+                          className="btn btn-primary btn-sm"
+                          onClick={() =>
+                            markInterested(startup.id)
+                          }
+                        >
+                          Interested
+                        </button>
+                      )}
+
+                    </td>
+
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan="5"
+                    className="text-center"
+                  >
+                    No startups available
+                  </td>
+                </tr>
+              )}
+
+            </tbody>
+
+          </table>
+
+        </div>
+      </div>
+
     </div>
   );
 }

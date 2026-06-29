@@ -46,6 +46,12 @@ function Challenges() {
   >
     + Post Challenge
   </a>
+  <a
+  href="/create-proposal"
+  className="btn btn-success ms-2"
+>
+  Submit Proposal
+</a>
 </div>
 
       {/* KPI CARDS */}

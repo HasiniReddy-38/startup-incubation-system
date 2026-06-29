@@ -23,7 +23,15 @@ from app.routers import review
 from app.routers import ranking
 from app.routers import matchmaking
 from app.routers import dashboard
-
+from app.routers.ai_insights import router as ai_insights_router
+from app.models.funding import FundingOpportunity
+from app.routers import funding
+from app.routers import ai_assistant
+from app.models.funding_application import FundingApplication
+from app.routers import funding_application
+from app.models.funding import FundingOpportunity
+from app.routers import funding
+from app.routers import funding_application
 
 app = FastAPI(
     title="Innovation Ecosystem Platform API"
@@ -64,6 +72,13 @@ app.include_router(matchmaking.router)
 
 app.include_router(dashboard.router)
 app.include_router(challenge.router)
+app.include_router(ai_insights_router)
+app.include_router(funding.router)
+app.include_router(ai_assistant.router)
+app.include_router(
+    funding_application.router
+)
+app.include_router(funding_application.router)
 
 
 # -----------------------------

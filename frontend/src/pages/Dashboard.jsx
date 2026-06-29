@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import AnalyticsCharts from "../components/AnalyticsCharts";
+import WorkflowTracker from "../components/WorkflowTracker";
 
 function Dashboard() {
   const [rankings, setRankings] = useState([]);
   const [matches, setMatches] = useState([]);
+  const navigate = useNavigate();
 
   const [summary, setSummary] = useState({
     startups: 0,
@@ -21,7 +24,7 @@ function Dashboard() {
         const [rankRes, matchRes, summaryRes] =
           await Promise.all([
             api.get("/rankings/startups"),
-            api.get("/matchmaking"),
+            api.get("/matchmaking/"),
             api.get("/dashboard/summary"),
           ]);
 
@@ -286,6 +289,13 @@ function Dashboard() {
       <div className="mt-4">
         <AnalyticsCharts />
       </div>
+      <WorkflowTracker
+  startups={summary.startups}
+  challenges={summary.challenges}
+  proposals={summary.proposals}
+  matches={matches.length}
+  funding={summary.investors}
+/>
 
       {/* Quick Actions */}
 
@@ -308,24 +318,35 @@ function Dashboard() {
 
               <div className="d-flex gap-3 flex-wrap">
 
-                <button className="btn btn-primary">
-                  Add Startup
-                </button>
+  <button
+    className="btn btn-primary"
+    onClick={() => navigate("/startup-profile")}
+  >
+    Add Startup
+  </button>
 
-                <button className="btn btn-success">
-                  Add Investor
-                </button>
+  <button
+    className="btn btn-success"
+    onClick={() => navigate("/investor-profile")}
+  >
+    Add Investor
+  </button>
 
-                <button className="btn btn-warning">
-                  Add Challenge
-                </button>
+  <button
+    className="btn btn-warning"
+    onClick={() => navigate("/create-challenge")}
+  >
+    Add Challenge
+  </button>
 
-                <button className="btn btn-info">
-                  Generate Report
-                </button>
+  <button
+    className="btn btn-info"
+    onClick={() => navigate("/review-proposals")}
+  >
+    Review Proposals
+  </button>
 
-              </div>
-
+</div>
             </div>
           </div>
 

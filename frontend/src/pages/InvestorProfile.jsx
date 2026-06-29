@@ -56,7 +56,7 @@ function InvestorProfile() {
       <div className="card border-0 shadow mx-auto" style={{ maxWidth:"900px", background:"#151518", borderRadius:"20px" }}>
         <div className="card-body p-4">
 
-          <h2 className="mb-4">💰 Investor Profile Setup</h2>
+          <h2 className="mb-4" style={{ color: "#f7f3f3" }}> 💰 Investor Profile Setup</h2>
 
           {message && <div className="alert alert-success">{message}</div>}
           {error && <div className="alert alert-danger">{error}</div>}
@@ -65,7 +65,7 @@ function InvestorProfile() {
             <div className="row">
 
               <div className="col-md-6 mb-3">
-                <label>Firm Name</label>
+                <label style={{ color: "#f7f3f3" }}>Firm Name</label>
                 <input
                   type="text"
                   name="firm_name"
@@ -77,7 +77,7 @@ function InvestorProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Preferred Sector</label>
+                <label style={{ color: "#f7f3f3" }}>Preferred Sector</label>
                 <input
                   type="text"
                   name="preferred_sector"
@@ -89,7 +89,7 @@ function InvestorProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Min Investment</label>
+                <label style={{ color: "#f7f3f3" }}>Min Investment</label>
                 <input
                   type="text"
                   name="min_investment"
@@ -101,7 +101,7 @@ function InvestorProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Max Investment</label>
+                <label style={{ color: "#f7f3f3" }}>Max Investment</label>
                 <input
                   type="text"
                   name="max_investment"
@@ -113,7 +113,7 @@ function InvestorProfile() {
               </div>
 
               <div className="col-md-12 mb-4">
-                <label>Location</label>
+                <label style={{ color: "#f7f3f3" }}>Location</label>
                 <input
                   type="text"
                   name="location"

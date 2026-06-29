@@ -53,7 +53,7 @@ function CorporateProfile() {
       <div className="card border-0 shadow mx-auto" style={{ maxWidth:"900px", background:"#151518", borderRadius:"20px" }}>
         <div className="card-body p-4">
 
-          <h2 className="mb-4">🏢 Corporate Profile Setup</h2>
+          <h2 className="mb-4" style={{ color: "#f7f3f3" }}>🏢 Corporate Profile Setup</h2>
 
           {message && <div className="alert alert-success">{message}</div>}
           {error && <div className="alert alert-danger">{error}</div>}
@@ -61,7 +61,7 @@ function CorporateProfile() {
           <form onSubmit={handleSubmit}>
 
             <div className="mb-3">
-              <label>Organization Name</label>
+              <label style={{ color: "#f7f3f3" }}>Organization Name</label>
               <input
                 type="text"
                 name="organization_name"
@@ -73,7 +73,7 @@ function CorporateProfile() {
             </div>
 
             <div className="mb-3">
-              <label>Industry</label>
+              <label style={{ color: "#f7f3f3" }}>Industry</label>
               <input
                 type="text"
                 name="industry"
@@ -85,7 +85,7 @@ function CorporateProfile() {
             </div>
 
             <div className="mb-3">
-              <label>Problem Domain</label>
+              <label style={{ color: "#f7f3f3" }}>Problem Domain</label>
               <input
                 type="text"
                 name="problem_domain"
@@ -97,7 +97,7 @@ function CorporateProfile() {
             </div>
 
             <div className="mb-4">
-              <label>Location</label>
+              <label style={{ color: "#f7f3f3" }}>Location</label>
               <input
                 type="text"
                 name="location"

@@ -16,8 +16,6 @@ import Startups from "./pages/Startups";
 import Investors from "./pages/Investors";
 import Corporates from "./pages/Corporates";
 import Jury from "./pages/Jury";
-import Analytics from "./pages/Analytics";
-import Settings from "./pages/Settings";
 import Challenges from "./pages/Challenges";
 
 import Login from "./pages/Login";
@@ -31,10 +29,13 @@ import JuryProfile from "./pages/JuryProfile";
 import Mentors from "./pages/Mentors";
 import Funding from "./pages/Funding";
 import AIInsights from "./pages/AIInsights";
-import Projects from "./pages/Projects";
 import EcosystemMap from "./pages/EcosystemMap";
+
 import CreateChallenge from "./pages/CreateChallenge";
 import CreateProposal from "./pages/CreateProposal";
+import ReviewProposals from "./pages/ReviewProposals";
+import AIAssistant from "./pages/AIAssistance";
+import FundingApplications from "./pages/FundingApplications";
 
 function AppLayout() {
   const location = useLocation();
@@ -46,12 +47,10 @@ function AppLayout() {
     "/register",
   ];
 
-  // Not logged in
   if (!token && !authPages.includes(location.pathname)) {
     return <Navigate to="/login" replace />;
   }
 
-  // Logged in but trying to access login/register
   if (
     token &&
     authPages.includes(location.pathname)
@@ -59,7 +58,6 @@ function AppLayout() {
     return <Navigate to="/" replace />;
   }
 
-  // Login/Register Pages
   if (authPages.includes(location.pathname)) {
     return (
       <Routes>
@@ -76,7 +74,6 @@ function AppLayout() {
     );
   }
 
-  // Main Layout
   return (
     <div className="d-flex">
       <Sidebar />
@@ -130,12 +127,6 @@ function AppLayout() {
           />
 
           <Route
-            path="/projects"
-            element={<Projects />}
-          />
-          
-
-          <Route
             path="/ecosystem-map"
             element={<EcosystemMap />}
           />
@@ -151,24 +142,13 @@ function AppLayout() {
             element={<AIInsights />}
           />
 
-          {/* Reports */}
+          {/* Rankings */}
           <Route
             path="/rankings"
             element={<Rankings />}
           />
 
-          <Route
-            path="/analytics"
-            element={<Analytics />}
-          />
-
-          {/* Settings */}
-          <Route
-            path="/settings"
-            element={<Settings />}
-          />
-
-          {/* Profile Creation */}
+          {/* Profile Pages */}
           <Route
             path="/startup-profile"
             element={<StartupProfile />}
@@ -189,21 +169,39 @@ function AppLayout() {
             element={<JuryProfile />}
           />
 
-          {/* Fallback Route MUST BE LAST */}
+          {/* Workflow Pages */}
+          <Route
+            path="/create-challenge"
+            element={<CreateChallenge />}
+          />
+
+          <Route
+            path="/create-proposal"
+            element={<CreateProposal />}
+          />
+
+          <Route
+            path="/review-proposals"
+            element={<ReviewProposals />}
+          />
+
+<Route
+  path="/ai-assistant"
+  element={<AIAssistant />}
+/>
+<Route
+  path="/funding-applications"
+  element={<FundingApplications />}
+/>
+          {/* Must be LAST */}
           <Route
             path="*"
             element={<Navigate to="/" replace />}
           />
-          <Route
-  path="/create-challenge"
-  element={<CreateChallenge />}
-/>
-<Route
-  path="/create-proposal"
-  element={<CreateProposal />}
-/>
+
 
         </Routes>
+
       </div>
     </div>
   );

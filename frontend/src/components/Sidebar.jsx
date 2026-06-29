@@ -1,4 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import {
   FaHome,
   FaRocket,
@@ -8,12 +10,10 @@ import {
   FaClipboardList,
   FaChartLine,
   FaHandshake,
-  FaChartBar,
-  FaCog,
   FaUserTie,
   FaBrain,
   FaMapMarkedAlt,
-  FaProjectDiagram,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 function Sidebar() {
@@ -27,13 +27,18 @@ function Sidebar() {
     borderRadius: "12px",
     textDecoration: "none",
     transition: "all 0.2s ease",
-    color: location.pathname === path ? "#fff" : "#cbd5e1",
+    color:
+      location.pathname === path
+        ? "#fff"
+        : "#cbd5e1",
     background:
       location.pathname === path
         ? "linear-gradient(135deg,#3b82f6,#6366f1)"
         : "transparent",
     fontWeight:
-      location.pathname === path ? "600" : "500",
+      location.pathname === path
+        ? "600"
+        : "500",
   });
 
   return (
@@ -48,16 +53,25 @@ function Sidebar() {
       }}
     >
       <div className="mb-4">
-        <h3 className="fw-bold">🚀 InnovationOS</h3>
+        <h3 className="fw-bold">
+          🚀 InnovationOS
+        </h3>
 
-        <small style={{ color: "#94a3b8" }}>
+        <small
+          style={{
+            color: "#94a3b8",
+          }}
+        >
           Enterprise Innovation Ecosystem
         </small>
       </div>
 
       <div className="d-flex flex-column gap-2">
 
-        <Link to="/" style={linkStyle("/")}>
+        <Link
+          to="/"
+          style={linkStyle("/")}
+        >
           <FaHome />
           Overview
         </Link>
@@ -94,7 +108,10 @@ function Sidebar() {
           Mentors
         </Link>
 
-        <Link to="/jury" style={linkStyle("/jury")}>
+        <Link
+          to="/jury"
+          style={linkStyle("/jury")}
+        >
           <FaBalanceScale />
           Jury
         </Link>
@@ -108,11 +125,11 @@ function Sidebar() {
         </Link>
 
         <Link
-          to="/projects"
-          style={linkStyle("/projects")}
+          to="/review-proposals"
+          style={linkStyle("/review-proposals")}
         >
-          <FaProjectDiagram />
-          POCs & Projects
+          <FaCheckCircle />
+          Reviews
         </Link>
 
         <Link
@@ -122,14 +139,13 @@ function Sidebar() {
           <FaMoneyBillWave />
           Funding
         </Link>
-
         <Link
-          to="/analytics"
-          style={linkStyle("/analytics")}
-        >
-          <FaChartBar />
-          Reports & Analytics
-        </Link>
+  to="/funding-applications"
+  style={linkStyle("/funding-applications")}
+>
+  <FaMoneyBillWave />
+  Funding Applications
+</Link>
 
         <Link
           to="/ai-insights"
@@ -163,14 +179,6 @@ function Sidebar() {
           AI Matchmaking
         </Link>
 
-        <Link
-          to="/settings"
-          style={linkStyle("/settings")}
-        >
-          <FaCog />
-          Settings
-        </Link>
-
       </div>
 
       <div
@@ -182,15 +190,19 @@ function Sidebar() {
       >
         <h6>🤖 AI Assistant</h6>
 
-        <small style={{ color: "#94a3b8" }}>
+        <small
+          style={{
+            color: "#94a3b8",
+          }}
+        >
           Ask anything about your ecosystem
         </small>
-
-        <button
-          className="btn btn-primary w-100 mt-3"
-        >
-          Ask AI
-        </button>
+        <Link
+  to="/ai-assistant"
+  className="btn btn-primary w-100 mt-3"
+>
+  Ask AI
+</Link>
       </div>
     </div>
   );

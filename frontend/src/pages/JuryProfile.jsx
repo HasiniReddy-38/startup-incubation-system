@@ -53,7 +53,7 @@ function JuryProfile() {
       <div className="card border-0 shadow mx-auto" style={{ maxWidth:"900px", background:"#151518", borderRadius:"20px" }}>
         <div className="card-body p-4">
 
-          <h2 className="mb-4">⚖️ Jury Profile Setup</h2>
+          <h2 className="mb-4"  style={{ color: "#f7f3f3" }}>⚖️ Jury Profile Setup</h2>
 
           {message && <div className="alert alert-success">{message}</div>}
           {error && <div className="alert alert-danger">{error}</div>}
@@ -61,7 +61,7 @@ function JuryProfile() {
           <form onSubmit={handleSubmit}>
 
             <div className="mb-3">
-              <label>Name</label>
+              <label  style={{ color: "#f7f3f3" }}>Name</label>
               <input
                 type="text"
                 name="name"
@@ -73,7 +73,7 @@ function JuryProfile() {
             </div>
 
             <div className="mb-3">
-              <label>Organization</label>
+              <label  style={{ color: "#f7f3f3" }}>Organization</label>
               <input
                 type="text"
                 name="organization"
@@ -85,7 +85,7 @@ function JuryProfile() {
             </div>
 
             <div className="mb-3">
-              <label>Expertise</label>
+              <label  style={{ color: "#f7f3f3" }}>Expertise</label>
               <input
                 type="text"
                 name="expertise"
@@ -97,7 +97,7 @@ function JuryProfile() {
             </div>
 
             <div className="mb-4">
-              <label>Experience Years</label>
+              <label  style={{ color: "#f7f3f3" }}>Experience Years</label>
               <input
                 type="number"
                 name="experience_years"

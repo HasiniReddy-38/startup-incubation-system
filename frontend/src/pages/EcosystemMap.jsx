@@ -18,7 +18,7 @@ function EcosystemMap() {
           borderRadius: "18px",
         }}
       >
-        <h3>Innovation Ecosystem Network</h3>
+        <h3 style={{color:"white"}}>Innovation Ecosystem Network</h3>
 
         <p className="text-secondary mt-3">
           Startups ↔ Investors ↔ Corporates ↔ Mentors ↔ Jury

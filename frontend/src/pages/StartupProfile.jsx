@@ -72,7 +72,7 @@ function StartupProfile() {
       >
         <div className="card-body p-4">
 
-          <h2 className="mb-4">
+          <h2 className="mb-4" style={{ color: "#fef8f8" }}>
             🚀 Startup Profile Setup
           </h2>
 
@@ -93,7 +93,7 @@ function StartupProfile() {
             <div className="row">
 
               <div className="col-md-6 mb-3">
-                <label>Company Name</label>
+                <label style={{ color: "#ded5d5" }}>Company Name</label>
 
                 <input
                   type="text"
@@ -106,7 +106,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Industry</label>
+                <label style={{ color: "#f6f4f4" }}>Industry</label>
 
                 <input
                   type="text"
@@ -119,7 +119,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Stage</label>
+                <label style={{ color: "#faf8f8" }}>Stage</label>
 
                 <input
                   type="text"
@@ -132,7 +132,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Funding Required</label>
+                <label style={{ color: "#f8f0f0" }}> Funding Required</label>
 
                 <input
                   type="text"
@@ -145,7 +145,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-12 mb-3">
-                <label>Description</label>
+                <label style={{ color: "#f3f1f1" }}>Description</label>
 
                 <textarea
                   name="description"
@@ -158,7 +158,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Location</label>
+                <label style={{ color: "#f6ecec" }}>Location</label>
 
                 <input
                   type="text"
@@ -171,7 +171,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label>Website</label>
+                <label style={{ color: "#f4f2f2" }}>Website</label>
 
                 <input
                   type="text"
@@ -184,7 +184,7 @@ function StartupProfile() {
               </div>
 
               <div className="col-md-12 mb-4">
-                <label>Pitch Deck URL</label>
+                <label style={{ color: "#f7f3f3" }}>Pitch Deck URL</label>
 
                 <input
                   type="text"
